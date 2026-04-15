@@ -1,7 +1,7 @@
 import { Bot, GrammyError, HttpError, InlineKeyboard } from "grammy";
 import { sendToBitrix } from "./src/sendToBitrix";
 import { config } from "./config";
-import { SocksProxyAgent } from "socks-proxy-agent";
+const { SocksProxyAgent } = require("socks-proxy-agent");
 
 const agent = new SocksProxyAgent(
   `socks5://${config.SOCKS5_PROXY_IP}:${config.SOCKS5_PROXY_PORT}`,
