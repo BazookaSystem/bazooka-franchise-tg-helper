@@ -3,6 +3,8 @@ import "dotenv/config";
 export const config = {
   TG_BOT_TOKEN: process.env.TG_BOT_TOKEN!,
   BITRIX_TOKEN: process.env.BITRIX_TOKEN!,
+  SOCKS5_PROXY_IP: process.env.SOCKS5_PROXY_IP!,
+  SOCKS5_PROXY_PORT: process.env.SOCKS5_PROXY_PORT!,
   BITRIX_ID_MAP: {
     а: 74,
     "1": 74,

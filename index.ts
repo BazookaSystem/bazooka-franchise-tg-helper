@@ -1,8 +1,20 @@
 import { Bot, GrammyError, HttpError, InlineKeyboard } from "grammy";
 import { sendToBitrix } from "./src/sendToBitrix";
 import { config } from "./config";
+import { SocksProxyAgent } from "socks-proxy-agent";
 
-const bot = new Bot(config.TG_BOT_TOKEN);
+const agent = new SocksProxyAgent(
+  `socks5://${config.SOCKS5_PROXY_IP}:${config.SOCKS5_PROXY_PORT}`,
+);
+
+const bot = new Bot(config.TG_BOT_TOKEN, {
+  client: {
+    baseFetchConfig: {
+      agent: agent,
+      compress: true,
+    },
+  },
+});
 
 bot.hears(/^тикет/i, async (ctx) => {
   const replyToMessage = ctx.update.message?.reply_to_message;
