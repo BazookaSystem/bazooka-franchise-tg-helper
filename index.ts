@@ -4,7 +4,7 @@ import { config } from "./config";
 import { SocksProxyAgent } from "socks-proxy-agent";
 
 const agent = new SocksProxyAgent(
-  `socks5://${config.SOCKS5_PROXY_IP}:${config.SOCKS5_PROXY_PORT}`,
+  `socks5h://${config.SOCKS5_PROXY_IP}:${config.SOCKS5_PROXY_PORT}`,
 );
 
 const bot = new Bot(config.TG_BOT_TOKEN, {
